@@ -13,7 +13,7 @@ import RealmSwift
 
 class CharactersTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     // Table View's outlet
-    @IBOutlet weak private var swTableView: UITableView!
+    @IBOutlet weak var swTableView: UITableView!
     let cellid = "CustomCell"
     // Empty variable for model
     // Note: if you want to make var for non-massive response -> var swData: SwCharacter = []
@@ -32,23 +32,29 @@ class CharactersTableViewController: UIViewController, UITableViewDelegate, UITa
         self.swTableView.register(cellNib, forCellReuseIdentifier: cellid)
         
         // Calling function to get data
-        getSW()
+        //getSW()
+        
+        //Making attempt to use singleton pattern
+        SwManager.shared.getSW {
+            self.swTableView.reloadData()
+            print("Data reload")
+        }
     }
     // Defining function using request handler
-    private func getSW() {
-        RequestHandler(path: "/people/")
-            .newBaseURL("https://swapi.dev/api/")
-            // Entering "folder" we need to get data from
-            .jsonKey("results")
-            .response { (model: [SwCharacter]?) in
-                print(model)
-                // getting data to our variable
-                self.swData = try! model ?? []
-                print(self.swData.count)
-                // always call that so results will show on table
-                self.swTableView.reloadData()
-            }
-    }
+//    private func getSW() {
+//        RequestHandler(path: "/people/")
+//            .newBaseURL("https://swapi.dev/api/")
+//            // Entering "folder" we need to get data from
+//            .jsonKey("results")
+//            .response { (model: [SwCharacter]?) in
+//                print(model)
+//                // getting data to our variable
+//                self.swData = try! model ?? []
+//                print(self.swData.count)
+//                // always call that so results will show on table
+//                self.swTableView.reloadData()
+//            }
+//    }
     // TableView Functions
     // Set amount of rows based on amount of data
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
