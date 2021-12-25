@@ -15,10 +15,9 @@ class CharactersTableViewController: UIViewController, UITableViewDelegate, UITa
     // Table View's outlet
     @IBOutlet weak private var swTableView: UITableView!
     let cellid = "CustomCell"
-    
+    // Empty variable for model
+    // Note: if you want to make var for non-massive response -> var swData: SwCharacter = []
     var swData: [SwCharacter] = []
-    
-    let tabledata = ["one", "two"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,17 +30,22 @@ class CharactersTableViewController: UIViewController, UITableViewDelegate, UITa
         // Register custom table cell's xib
         let cellNib = UINib(nibName: cellid, bundle: .main)
         self.swTableView.register(cellNib, forCellReuseIdentifier: cellid)
+        
+        // Calling function to get data
         getSW()
     }
-    // Defining function
+    // Defining function using request handler
     private func getSW() {
         RequestHandler(path: "/people/")
             .newBaseURL("https://swapi.dev/api/")
+            // Entering "folder" we need to get data from
             .jsonKey("results")
             .response { (model: [SwCharacter]?) in
                 print(model)
+                // getting data to our variable
                 self.swData = try! model ?? []
                 print(self.swData.count)
+                // always call that so results will show on table
                 self.swTableView.reloadData()
             }
     }
@@ -54,7 +58,11 @@ class CharactersTableViewController: UIViewController, UITableViewDelegate, UITa
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    
+    // Sets height of Row
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60.0;//Choose your custom row height
+    }
+    // Displays information grabbed from swData in a custom cell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = swTableView.dequeueReusableCell(withIdentifier: cellid, for: indexPath) as? CustomCell {
             cell.customCellLabel?.text = self.swData[indexPath.row].name

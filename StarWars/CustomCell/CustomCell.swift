@@ -13,11 +13,8 @@ class CustomCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        self.alpha = 0.5
         self.layer.borderWidth = 1
         self.layer.masksToBounds = true
-        self.layer.cornerRadius = 15
-        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
