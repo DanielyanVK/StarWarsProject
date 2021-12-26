@@ -15,9 +15,10 @@ class CharactersTableViewController: UIViewController, UITableViewDelegate, UITa
     // Table View's outlet
     @IBOutlet weak var swTableView: UITableView!
     let cellid = "CustomCell"
-    // Empty variable for model
-    // Note: if you want to make var for non-massive response -> var swData: SwCharacter = []
-    var swData: [SwCharacter] = []
+    // Note: if you want to make var for non-massive response -> var DataSource: SwCharacter = []
+    // Empty variable for model to transfer data from class
+    var dataSource: [SwCharacter] = []
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,34 +32,21 @@ class CharactersTableViewController: UIViewController, UITableViewDelegate, UITa
         let cellNib = UINib(nibName: cellid, bundle: .main)
         self.swTableView.register(cellNib, forCellReuseIdentifier: cellid)
         
-        // Calling function to get data
-        //getSW()
-        
-        //Making attempt to use singleton pattern
-        SwManager.shared.getSW {
+        //Using singleton pattern
+        SwManager.shared.getSW { (finalData) in
+            // assigning value we got in request from class to empty variable we created here
+            self.dataSource = finalData
+            // always do that so your data actually gets displayed
             self.swTableView.reloadData()
+            // just checking function's order of execution for myself
             print("Data reload")
         }
     }
-    // Defining function using request handler
-//    private func getSW() {
-//        RequestHandler(path: "/people/")
-//            .newBaseURL("https://swapi.dev/api/")
-//            // Entering "folder" we need to get data from
-//            .jsonKey("results")
-//            .response { (model: [SwCharacter]?) in
-//                print(model)
-//                // getting data to our variable
-//                self.swData = try! model ?? []
-//                print(self.swData.count)
-//                // always call that so results will show on table
-//                self.swTableView.reloadData()
-//            }
-//    }
+   
     // TableView Functions
     // Set amount of rows based on amount of data
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return swData.count
+        return dataSource.count
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -71,7 +59,7 @@ class CharactersTableViewController: UIViewController, UITableViewDelegate, UITa
     // Displays information grabbed from swData in a custom cell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = swTableView.dequeueReusableCell(withIdentifier: cellid, for: indexPath) as? CustomCell {
-            cell.customCellLabel?.text = self.swData[indexPath.row].name
+            cell.customCellLabel?.text = self.dataSource[indexPath.row].name
             return cell
         }
         return UITableViewCell()
