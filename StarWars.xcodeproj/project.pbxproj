@@ -19,6 +19,7 @@
 		E4565B192775FC9400C14881 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4565B182775FC9400C14881 /* DataModel.swift */; };
 		E4565B282776264300C14881 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4565B262776264300C14881 /* CustomCell.swift */; };
 		E4565B292776264300C14881 /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4565B272776264300C14881 /* CustomCell.xib */; };
+		E45982602779CFFD00FD61F5 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E459825F2779CFFD00FD61F5 /* RealmService.swift */; };
 		E45AFE6D2775CED900D5FCBE /* TypeAlias.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45AFE6A2775CED900D5FCBE /* TypeAlias.swift */; };
 		E45AFE6E2775CED900D5FCBE /* Extension Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45AFE6B2775CED900D5FCBE /* Extension Decodable.swift */; };
 		E45AFE6F2775CED900D5FCBE /* RequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45AFE6C2775CED900D5FCBE /* RequestHandler.swift */; };
@@ -43,6 +44,7 @@
 		E4565B182775FC9400C14881 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		E4565B262776264300C14881 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		E4565B272776264300C14881 /* CustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCell.xib; sourceTree = "<group>"; };
+		E459825F2779CFFD00FD61F5 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		E45AFE6A2775CED900D5FCBE /* TypeAlias.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeAlias.swift; sourceTree = "<group>"; };
 		E45AFE6B2775CED900D5FCBE /* Extension Decodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension Decodable.swift"; sourceTree = "<group>"; };
 		E45AFE6C2775CED900D5FCBE /* RequestHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestHandler.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				E4949031277736A9000860FB /* swManager.swift */,
+				E459825F2779CFFD00FD61F5 /* RealmService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E417B0EF2775CD6F001961AC /* AppDelegate.swift in Sources */,
+				E45982602779CFFD00FD61F5 /* RealmService.swift in Sources */,
 				E417B0F12775CD6F001961AC /* SceneDelegate.swift in Sources */,
 				E4565B0F2775F69B00C14881 /* CharactersTableViewController.swift in Sources */,
 				E4949032277736A9000860FB /* swManager.swift in Sources */,

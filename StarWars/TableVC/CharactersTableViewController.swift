@@ -18,11 +18,10 @@ class CharactersTableViewController: UIViewController, UITableViewDelegate, UITa
     // Note: if you want to make var for non-massive response -> var DataSource: SwCharacter = []
     // Empty variable for model to transfer data from class
     var dataSource: [SwCharacter] = []
-   
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
         // Standart TableView operations
         self.swTableView.delegate = self
@@ -33,9 +32,9 @@ class CharactersTableViewController: UIViewController, UITableViewDelegate, UITa
         self.swTableView.register(cellNib, forCellReuseIdentifier: cellid)
         
         //Using singleton pattern
-        SwManager.shared.getSW { (finalData) in
+        SwManager.shared.getSW { (savedCharacters) in
             // assigning value we got in request from class to empty variable we created here
-            self.dataSource = finalData
+            self.dataSource = savedCharacters
             // always do that so your data actually gets displayed
             self.swTableView.reloadData()
             // just checking function's order of execution for myself
