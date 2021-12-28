@@ -27,6 +27,11 @@ class SwCharacter: Object, Codable {
     @objc dynamic var created: String
     @objc dynamic var edited: String
     @objc dynamic var url: String
+    // Primary Key function. By that our program distinguishes if model was updated after request or not
+    // Necessarry to use Update in Realm
+    @objc open class override func primaryKey() -> String? {
+        return "name"
+    }
     
     convenience init(films: List<String>, species: List<String>, vehicles: List<String>, starships: List<String>) {
         self.init()

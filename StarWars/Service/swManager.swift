@@ -32,6 +32,7 @@ class SwManager {
                 let finalData = model
                 // Trying to cache data and use it (no success)
                 self.realmService.save(finalData!)
+                // using cached data
                 let savedCharacters = self.realmService.retriveObjects(by: SwCharacter.self)
                 print(self.swData.count)
                 // completion block, after that done, it moves to character view controller

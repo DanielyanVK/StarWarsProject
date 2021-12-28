@@ -13,14 +13,14 @@ class RealmService {
     func save (_ object: Object) {
         let realm = try! Realm()
         try? realm.write {
-            realm.add(object)
+            realm.add(object, update: .modified)
         }
     }
     // Function to cache multiple objects
     func save (_ objects: [Object]) {
         let realm = try! Realm()
         try? realm.write {
-            realm.add(objects)
+            realm.add(objects, update: .modified)
         }
     }
     // Function to retrieve objects

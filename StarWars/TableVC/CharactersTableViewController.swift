@@ -33,7 +33,7 @@ class CharactersTableViewController: UIViewController, UITableViewDelegate, UITa
         
         //Using singleton pattern
         SwManager.shared.getSW { (savedCharacters) in
-            // assigning value we got in request from class to empty variable we created here
+            // assigning  cached value we got to empty variable we created here
             self.dataSource = savedCharacters
             // always do that so your data actually gets displayed
             self.swTableView.reloadData()
