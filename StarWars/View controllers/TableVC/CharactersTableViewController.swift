@@ -13,23 +13,24 @@ import RealmSwift
 
 class CharactersTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     // Table View's outlet
-    @IBOutlet weak var swTableView: UITableView!
-    let cellid = "CustomCell"
+    @IBOutlet weak private var swTableView: UITableView!
+    private let cellid = "CustomCell"
     // Note: if you want to make var for non-massive response -> var DataSource: SwCharacter = []
     // Empty variable for model to transfer data from class
-    var dataSource: [SwCharacter] = []
+    private var dataSource: [SwCharacter] = []
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
         // Standart TableView operations
-        self.swTableView.delegate = self
-        self.swTableView.dataSource = self
+        swTableView.delegate = self
+        swTableView.dataSource = self
         
         // Register custom table cell's xib
         let cellNib = UINib(nibName: cellid, bundle: .main)
-        self.swTableView.register(cellNib, forCellReuseIdentifier: cellid)
+        swTableView.register(cellNib, forCellReuseIdentifier: cellid)
         
         //Using singleton pattern
         SwManager.shared.getSW { (savedCharacters) in
@@ -56,11 +57,13 @@ class CharactersTableViewController: UIViewController, UITableViewDelegate, UITa
         return 60.0;//Choose your custom row height
     }
     // Displays information grabbed from swData in a custom cell
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
+        // declaring model for cell
+        let cellModel = dataSource[indexPath.row]
         if let cell = swTableView.dequeueReusableCell(withIdentifier: cellid, for: indexPath) as? CustomCell {
-            cell.customCellLabel?.text = self.dataSource[indexPath.row].name
-            return cell
-        }
+        // calling update method to cell it assigns label to SwCharacter name
+        cell.update(with: cellModel)
+          }
         return UITableViewCell()
     }
 }

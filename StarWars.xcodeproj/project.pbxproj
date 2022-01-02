@@ -25,7 +25,7 @@
 		E45AFE6F2775CED900D5FCBE /* RequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45AFE6C2775CED900D5FCBE /* RequestHandler.swift */; };
 		E45AFE722775D67900D5FCBE /* SFPRODISPLAYREGULAR.OTF in Resources */ = {isa = PBXBuildFile; fileRef = E45AFE712775D67900D5FCBE /* SFPRODISPLAYREGULAR.OTF */; };
 		E45AFE762775DE4300D5FCBE /* SFPRODISPLAYBOLD.OTF in Resources */ = {isa = PBXBuildFile; fileRef = E45AFE752775DE4300D5FCBE /* SFPRODISPLAYBOLD.OTF */; };
-		E4949032277736A9000860FB /* swManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4949031277736A9000860FB /* swManager.swift */; };
+		E4949032277736A9000860FB /* SWManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4949031277736A9000860FB /* SWManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,7 +50,7 @@
 		E45AFE6C2775CED900D5FCBE /* RequestHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestHandler.swift; sourceTree = "<group>"; };
 		E45AFE712775D67900D5FCBE /* SFPRODISPLAYREGULAR.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = SFPRODISPLAYREGULAR.OTF; sourceTree = "<group>"; };
 		E45AFE752775DE4300D5FCBE /* SFPRODISPLAYBOLD.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = SFPRODISPLAYBOLD.OTF; sourceTree = "<group>"; };
-		E4949031277736A9000860FB /* swManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swManager.swift; sourceTree = "<group>"; };
+		E4949031277736A9000860FB /* SWManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWManager.swift; sourceTree = "<group>"; };
 		EBD7D9C8EE6ED02A573DAB59 /* Pods-StarWars.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StarWars.release.xcconfig"; path = "Target Support Files/Pods-StarWars/Pods-StarWars.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -104,15 +104,14 @@
 		E417B0ED2775CD6F001961AC /* StarWars */ = {
 			isa = PBXGroup;
 			children = (
-				E494902E27772824000860FB /* Service */,
-				E417B1022775CDB5001961AC /* HomeVC */,
-				E4565B0C2775F61C00C14881 /* TableVC */,
+				E470EC4D2781875A00253F80 /* View controllers */,
+				E470EC4C2781870400253F80 /* Custom views */,
+				E494902E27772824000860FB /* Services */,
 				E4565B112775F83800C14881 /* Delegates */,
-				E4565B132775F8BD00C14881 /* CustomCell */,
-				E4565B122775F86700C14881 /* Assets&Info */,
-				E417B0FC2775CD6F001961AC /* Info.plist */,
-				E45AFE692775CE9600D5FCBE /* RequestHandler */,
+				E4565B122775F86700C14881 /* Assets */,
+				E470EC4E278187A200253F80 /* Objects */,
 				E4565B182775FC9400C14881 /* DataModel.swift */,
+				E417B0FC2775CD6F001961AC /* Info.plist */,
 			);
 			path = StarWars;
 			sourceTree = "<group>";
@@ -144,33 +143,23 @@
 			path = Delegates;
 			sourceTree = "<group>";
 		};
-		E4565B122775F86700C14881 /* Assets&Info */ = {
+		E4565B122775F86700C14881 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
 				E45AFE702775D65C00D5FCBE /* Fonts */,
 				E417B0F72775CD6F001961AC /* Assets.xcassets */,
 				E417B0F92775CD6F001961AC /* LaunchScreen.storyboard */,
 			);
-			path = "Assets&Info";
+			path = Assets;
 			sourceTree = "<group>";
 		};
-		E4565B132775F8BD00C14881 /* CustomCell */ = {
+		E4565B132775F8BD00C14881 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
 				E4565B262776264300C14881 /* CustomCell.swift */,
 				E4565B272776264300C14881 /* CustomCell.xib */,
 			);
-			path = CustomCell;
-			sourceTree = "<group>";
-		};
-		E45AFE692775CE9600D5FCBE /* RequestHandler */ = {
-			isa = PBXGroup;
-			children = (
-				E45AFE6B2775CED900D5FCBE /* Extension Decodable.swift */,
-				E45AFE6C2775CED900D5FCBE /* RequestHandler.swift */,
-				E45AFE6A2775CED900D5FCBE /* TypeAlias.swift */,
-			);
-			path = RequestHandler;
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		E45AFE702775D65C00D5FCBE /* Fonts */ = {
@@ -182,13 +171,40 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
-		E494902E27772824000860FB /* Service */ = {
+		E470EC4C2781870400253F80 /* Custom views */ = {
 			isa = PBXGroup;
 			children = (
-				E4949031277736A9000860FB /* swManager.swift */,
+				E4565B132775F8BD00C14881 /* Cells */,
+			);
+			path = "Custom views";
+			sourceTree = "<group>";
+		};
+		E470EC4D2781875A00253F80 /* View controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E4565B0C2775F61C00C14881 /* TableVC */,
+				E417B1022775CDB5001961AC /* HomeVC */,
+			);
+			path = "View controllers";
+			sourceTree = "<group>";
+		};
+		E470EC4E278187A200253F80 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				E45AFE6B2775CED900D5FCBE /* Extension Decodable.swift */,
+				E45AFE6C2775CED900D5FCBE /* RequestHandler.swift */,
+				E45AFE6A2775CED900D5FCBE /* TypeAlias.swift */,
+			);
+			path = Objects;
+			sourceTree = "<group>";
+		};
+		E494902E27772824000860FB /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E4949031277736A9000860FB /* SWManager.swift */,
 				E459825F2779CFFD00FD61F5 /* RealmService.swift */,
 			);
-			path = Service;
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -314,7 +330,7 @@
 				E45982602779CFFD00FD61F5 /* RealmService.swift in Sources */,
 				E417B0F12775CD6F001961AC /* SceneDelegate.swift in Sources */,
 				E4565B0F2775F69B00C14881 /* CharactersTableViewController.swift in Sources */,
-				E4949032277736A9000860FB /* swManager.swift in Sources */,
+				E4949032277736A9000860FB /* SWManager.swift in Sources */,
 				E45AFE6F2775CED900D5FCBE /* RequestHandler.swift in Sources */,
 				E4565B282776264300C14881 /* CustomCell.swift in Sources */,
 				E45AFE6D2775CED900D5FCBE /* TypeAlias.swift in Sources */,

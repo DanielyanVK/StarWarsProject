@@ -20,7 +20,7 @@ class SwCharacter: Object, Codable {
     @objc dynamic var birth_year: String
     @objc dynamic var gender: String
     @objc dynamic var homeworld: String
-    var films: List<String>? = List()
+    var films: List<String>?
     var species: List<String>? = List()
     var vehicles: List<String>? = List()
     var starships: List<String>? = List()
@@ -31,25 +31,5 @@ class SwCharacter: Object, Codable {
     // Necessarry to use Update in Realm
     @objc open class override func primaryKey() -> String? {
         return "name"
+        }
     }
-    
-    convenience init(films: List<String>, species: List<String>, vehicles: List<String>, starships: List<String>) {
-        self.init()
-        self.films = films
-        for film in films {
-            films.append(film)
-        }
-        self.vehicles = vehicles
-        for vehicle in vehicles {
-            vehicles.append(vehicle)
-        }
-        self.species = species
-        for specie in species {
-            species.append(specie)
-        }
-        self.starships = starships
-        for starship in starships {
-            starships.append(starship)
-        }
-      }
-}
