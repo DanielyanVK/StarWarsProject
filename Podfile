@@ -10,4 +10,6 @@ target 'StarWars' do
 	pod 'SwiftyJSON', '~> 4.0'
 	pod 'SwiftLint'
 	pod 'RealmSwift'
+	pod 'Firebase'
+	pod 'Firebase/Database'
 end

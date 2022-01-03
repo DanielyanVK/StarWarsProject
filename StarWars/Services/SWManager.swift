@@ -25,7 +25,6 @@ class SwManager {
             // Entering "folder" we need to get data from
             .jsonKey("results")
             .response { (model: [SwCharacter]?) in
-                print(model!)
                 // getting data to our variable
                 self.swData = try! model ?? []
                 // setting up constant for transfering data outside
